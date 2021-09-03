@@ -16,15 +16,14 @@
 
 <script>
   export let post
+
+  const title = post[0].title.rendered
+  const date = post[0].date
+  const content = post[0].content.rendered
 </script>
 
-<h1>{@html post[0].title.rendered}</h1>
-<p>Published on: {post[0].date}</p>
-<p>{@html post[0].content.rendered}</p>
-
-<style>
-  :global(img) {
-    max-width: 400px;
-    height: auto;
-  }
-</style>
+{#if post}
+  <h1>{@html title}</h1>
+  <p>Published on: {date}</p>
+  <p>{@html content}</p>
+{/if}
